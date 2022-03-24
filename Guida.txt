@@ -1,0 +1,15 @@
+Creazione repo
+Aggiunta file txt
+
+Crea cartella dentro "git" su desktop
+Apri git bash here
+
+git clone "link repository"
+
+Metti tutti i file dentro la cartella
+
+git add *
+
+git commit -m "messaggio"
+
+git push
