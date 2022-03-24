@@ -1,0 +1,72 @@
+<div class="wrapper">
+    <form class="form" #form="ngForm" (ngSubmit)="submitForm(form)">
+      <div *ngIf="errorMessage" class="alert alert-danger" role="alert">
+        {{errorMessage}}
+      </div>
+      <div class="form-group">
+        <input
+        nz-input
+          type="text"
+          ngModel
+          name="nome"
+          placeholder="nome"
+        />
+      </div>
+      <div class="form-group">
+        <input
+          nz-input
+          type="text"
+          ngModel
+          name="cognome"
+          placeholder="cognome"
+        />
+      </div>
+      <div class="form-group">
+        <input nz-input type="email" ngModel name="email" placeholder="email" />
+      </div>
+      <div>
+        <input
+          nz-input
+          type="text"
+          ngModel
+          name="username"
+          placeholder="username"
+        />
+      </div>
+      <div class="form-group">
+        <input
+          type="password"
+          ngModel
+          nz-input
+          name="password"
+          placeholder="password"
+        />
+      </div>
+      <div>
+        <nz-select nzPlaceHolder="Select a role" ngModel name="role">
+          <nz-option nzValue="ROLE_USER" nzLabel="user"></nz-option>
+          <nz-option nzValue="ROLE_ADMIN" nzLabel="admin"></nz-option>
+        </nz-select>
+      </div>
+      <button
+        nz-button
+        nzType="primary"
+        type="submit"
+        nzSize="large"
+        type="submit"
+      >
+        Sign up
+        <span
+          *ngIf="isLoading"
+          class="spinner-border spinner-border-sm mx-2"
+          role="status"
+          aria-hidden="true"
+        ></span>
+      </button>
+      <p>
+  
+       Già registrato?
+        <a nz-button nzType="link" (click)="goLogin()">Login</a>
+      </p>
+    </form>
+  </div>

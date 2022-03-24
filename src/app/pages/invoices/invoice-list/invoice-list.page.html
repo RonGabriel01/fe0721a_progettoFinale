@@ -1,0 +1,37 @@
+<app-navbar></app-navbar>
+<div class="container">
+  <nz-table>
+    <thead>
+      <tr>
+        <th scope="col">ID</th>
+        <th scope="col">Data</th>
+        <th scope="col">Numero</th>
+        <th scope="col">Anno</th>
+        <th scope="col">Importo</th>
+        <th scope="col">Stato</th>
+        <th scope="col">Cliente</th>
+        <th scope="col"></th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let fattura of fatture?.content">
+        <td>{{fattura.id}}</td>
+        <td>{{fattura.data}}</td>
+        <td>{{fattura.numero}}</td>
+        <td>{{fattura.anno}}</td>
+        <td>{{fattura.importo}}</td>
+        <td>{{fattura.stato.nome}}</td>
+        <td>{{fattura.cliente.ragioneSociale}}</td>
+        <td><i class="bi bi-pen-fill" (click)="goToEditInvoice(fattura.id)"></i> <i class="bi bi-trash-fill"></i></td>
+      </tr>
+    </tbody>
+  </nz-table>
+  <nz-pagination [nzPageIndex]="1" [nzTotal]="100" [nzItemRender]="renderItemTemplate"></nz-pagination>
+  <ng-template #renderItemTemplate let-type let-page="page">
+    <ng-container [ngSwitch]="type">
+      <a *ngSwitchCase="'page'">{{ this.page }}</a>
+      <a *ngSwitchCase="'prev'" (click)="cambiaPagina('-')">Previous</a>
+      <a *ngSwitchCase="'next'" (click)="cambiaPagina('+')">Next</a>
+    </ng-container>
+  </ng-template>
+</div>

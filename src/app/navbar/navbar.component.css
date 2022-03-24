@@ -1,0 +1,7 @@
+nav {
+    margin: 1em 0;
+  }
+  
+  .bi-door-closed:hover {
+    color: #dc143c !important;
+}  

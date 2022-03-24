@@ -1,0 +1,58 @@
+<app-navbar></app-navbar>
+<div class="container">
+  <nz-table>
+    <thead>
+      <tr>
+        <th scope="col">ID</th>
+        <th scope="col">Ragione Sociale</th>
+        <th scope="col">Email</th>
+        <th scope="col">Partita Iva</th>
+        <th scope="col">
+          <i
+            class="bi bi-plus-circle-fill"
+            (click)="newClient()"
+          ></i>
+        </th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let cliente of clienti?.content;let i = index;">
+        <td>{{cliente.id}}</td>
+        <td>{{cliente.ragioneSociale}}</td>
+        <td>{{cliente.email}}</td>
+        <td>{{cliente.partitaIva}}</td>
+        <td>
+          <i class="bi bi-receipt" (click)="goInvoice(cliente.id)"></i>
+          <i class="bi bi-pen" (click)="goEditClient(cliente.id)"></i>
+          <i class="bi bi-trash-fill" (click)="onDelete(cliente.id)"></i>
+        </td>
+      </tr>
+    </tbody>
+  </nz-table>
+
+  <!-- <nav>
+    <ul class="pagination">
+      <li class="page-item">
+        <a class="page-link" (click)="cambiaPagina('-')" style="cursor: pointer"
+          >Previous</a
+        >
+      </li>
+      <li class="page-item"><a class="page-link">{{this.page}}</a></li>
+      <li class="page-item">
+        <a class="page-link" (click)="cambiaPagina('+')" style="cursor: pointer"
+          >Next</a
+        >
+      </li>
+    </ul>
+  </nav> -->
+  <nz-pagination [nzPageIndex]="1" [nzTotal]="100" [nzItemRender]="renderItemTemplate"></nz-pagination>
+<ng-template #renderItemTemplate let-type let-page="page">
+  <ng-container [ngSwitch]="type">
+    <a *ngSwitchCase="'page'">{{ this.page }}</a>
+    <a *ngSwitchCase="'prev'" (click)="cambiaPagina('-')">Previous</a>
+    <a *ngSwitchCase="'next'" (click)="cambiaPagina('+')">Next</a>
+  </ng-container>
+</ng-template>
+
+
+</div>

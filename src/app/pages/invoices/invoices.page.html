@@ -1,0 +1,34 @@
+<app-navbar></app-navbar>
+<div class="container">
+  <nz-table>
+    <thead>
+      <tr>
+        <th scope="col">ID</th>
+        <th scope="col">Data</th>
+        <th scope="col">Numero</th>
+        <th scope="col">Anno</th>
+        <th scope="col">Importo</th>
+        <th scope="col">Stato</th>
+        <th scope="col">Cliente</th>
+        <th scope="col">
+          <i class="bi bi-plus-circle-fill" (click)="goAddInvoice()"></i>
+        </th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let fattura of fatture?.content">
+        <td>{{fattura?.id}}</td>
+        <td>{{fattura?.data}}</td>
+        <td>{{fattura?.numero}}</td>
+        <td>{{fattura?.anno}}</td>
+        <td>{{fattura?.importo}}</td>
+        <td>{{fattura?.stato.nome}}</td>
+        <td>{{fattura?.cliente.ragioneSociale}}</td>
+        <td>
+          <i class="bi bi-pen-fill" (click)="goEditInvoice()"></i>
+          <i class="bi bi-trash-fill" (click)="onDelete(fattura?.id)"></i>
+        </td>
+      </tr>
+    </tbody>
+  </nz-table>
+</div>

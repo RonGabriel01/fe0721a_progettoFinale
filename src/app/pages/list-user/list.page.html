@@ -1,0 +1,29 @@
+<app-navbar></app-navbar>
+<div class="container">
+  <nz-table>
+    <thead>
+      <tr>
+        <th scope="col">ID</th>
+        <th scope="col">Username</th>
+        <th scope="col">Email</th>
+        <th scope="col">Role</th>
+      </tr>
+    </thead>
+    <tbody>
+       <tr *ngFor="let utente of utenti?.content">
+        <td>{{utente.id}}</td>
+        <td>{{utente.username}}</td>
+        <td>{{utente.email}}</td>
+        <td>{{utente.roles[0].roleName}}</td>
+      </tr>
+    </tbody>
+  </nz-table>
+  <nz-pagination [nzPageIndex]="1" [nzTotal]="60" [nzItemRender]="renderItemTemplate"></nz-pagination>
+  <ng-template #renderItemTemplate let-type let-page="page">
+    <ng-container [ngSwitch]="type">
+      <a *ngSwitchCase="'page'">{{ this.page }}</a>
+      <a *ngSwitchCase="'prev'" (click)="cambiaPagina('-')">Previous</a>
+      <a *ngSwitchCase="'next'" (click)="cambiaPagina('+')">Next</a>
+    </ng-container>
+  </ng-template>
+</div>

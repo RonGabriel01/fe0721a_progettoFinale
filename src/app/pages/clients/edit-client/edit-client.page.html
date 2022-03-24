@@ -1,0 +1,73 @@
+<div class="container my-4">
+    <form class="form" #form="ngForm" (ngSubmit)="submitForm(form)">
+      <div class="row">
+      <div class="col-md-6">
+       <div class="form-group">
+        <input nz-input type="text" ngModel name="ragioneSociale" placeholder="Ragione Sociale" value="{{cliente?.ragioneSociale}}"  [(ngModel)]="cliente.ragioneSociale" />
+      </div>
+      <div class="form-group">
+        <input nz-input  type="text" ngModel name="partitaIva" placeholder="Partita Iva"value="{{cliente?.partitaIva}}" [(ngModel)]="cliente.partitaIva" />
+      </div>
+      <div class="form-group">
+        <input nz-input  type="email" ngModel name="email" placeholder="Email" value="{{cliente?.email}}" [(ngModel)]="cliente.email"/>
+      </div>
+      <div class="form-group">
+        <nz-select nzPlaceHolder="Select a type" ngModel name="tipoCliente">
+          <nz-option  *ngFor="let tipoCliente of tipiClienti" [nzLabel]="tipoCliente" [nzValue]="cliente?.tipoCliente" [(ngModel)]="cliente.tipoCliente">
+            {{tipoCliente}}
+          </nz-option>
+        </nz-select>
+      </div>
+      <div class="form-group">
+        <input nz-input  type="text" ngModel name="pec" placeholder="Pec" value="{{cliente?.pec}}" [(ngModel)]="cliente.pec"/>
+      </div>
+      <div class="form-group">
+        <input nz-input  type="tel" ngModel name="telefono" placeholder="Telefono" value="{{cliente?.telefono}}" [(ngModel)]="cliente.telefono"/>
+      </div>
+      <div class="form-group">
+        <input nz-input type="text" ngModel name="nomeContatto" placeholder="Nome Contattto" value="{{cliente?.nomeContatto}}" [(ngModel)]="cliente.nomeContatto"/>
+      </div>
+      <div class="form-group">
+        <input nz-input type="text" ngModel name="cognomeContatto" placeholder="Cognome Contatto" value="{{cliente?.cognomeContatto}}" [(ngModel)]="cliente.cognomeContatto"/>
+      </div>
+  
+    </div>
+    <div class="col-md-6">
+      <div class="form-group">
+        <input nz-input type="tel" ngModel name="telefonoContatto" placeholder="Telefono Contatto" value="{{cliente?.telefonoContatto}}" [(ngModel)]="cliente.telefonoContatto"/>
+      </div>
+      <div class="form-group">
+        <input nz-input type="email" ngModel name="emailContatto" placeholder="Email Contatto" value="{{cliente?.emailContatto}}" [(ngModel)]="cliente.emailContatto"/>
+      </div>
+      <div class="form-group">
+        <input nz-input type="text" ngModel name="Via" placeholder="Via" value="{{cliente?.Via}}" [(ngModel)]="cliente.Via"/>
+      </div>
+      <div class="form-group">
+        <input nz-input type="text" ngModel name="Civico" placeholder="Civico" value="{{cliente?.Civico}}" [(ngModel)]="cliente.Civico"/>
+      </div>
+      <div class="form-group">
+        <input nz-input type="text" ngModel name="Cap" placeholder="Cap" value="{{cliente?.Cap}}" [(ngModel)]="cliente.Cap"/>
+      </div>
+      <div class="form-group">
+        <input nz-input type="text" ngModel name="Localita" placeholder="Località" value="{{cliente?.Localita}}" [(ngModel)]="cliente.Localita"/>
+      </div>
+      <div class="form-group">
+        <nz-select nzPlaceHolder="Select a comune" ngModel name="comune" [(ngModel)]="cliente.comune">
+          <nz-option *ngFor="let comune of comuni" [nzValue]="comune.nome" [nzLabel]="comune.nome">
+            {{comune.nome}}
+          </nz-option>
+        </nz-select>
+      </div>
+      <div class="form-group">
+        <nz-select nzPlaceHolder="Select a provincia"ngModel name="provincia" [(ngModel)]="cliente.provincia">
+          <nz-option *ngFor="let provincia of province" [nzValue]="provincia.nome" [nzLabel]="provincia.nome">
+            {{provincia.nome}}
+          </nz-option>
+        </nz-select>
+      </div>
+  </div>
+</div>
+      <button nz-button nzType="primary" type="submit">Modifica</button>
+    </form>
+</div>
+  

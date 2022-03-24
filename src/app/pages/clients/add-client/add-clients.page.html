@@ -1,0 +1,72 @@
+<div class="wrapper">
+    <form class="form" #form="ngForm" (ngSubmit)="submitForm(form)">
+      <div class="row">
+      <div class="col-md-6">
+       <div class="form-group">
+        <input nz-input type="text" ngModel name="ragioneSociale" placeholder="Ragione Sociale" />
+      </div>
+      <div class="form-group">
+        <input nz-input  type="text" ngModel name="partitaIva" placeholder="Partita Iva" />
+      </div>
+      <div class="form-group">
+        <input nz-input  type="email" ngModel name="email" placeholder="Email"/>
+      </div>
+      <div class="form-group">
+        <nz-select nzPlaceHolder="Select a type" ngModel name="tipoCliente">
+          <nz-option  *ngFor="let tipoCliente of tipiClienti" [nzLabel]="tipoCliente" [nzValue]="tipoCliente">
+            {{tipoCliente}}
+          </nz-option>
+        </nz-select>
+      </div>
+      <div class="form-group">
+        <input nz-input  type="text" ngModel name="pec" placeholder="Pec" />
+      </div>
+      <div class="form-group">
+        <input nz-input  type="tel" ngModel name="telefono" placeholder="Telefono" />
+      </div>
+      <div class="form-group">
+        <input nz-input type="text" ngModel name="nomeContatto" placeholder="Nome Contattto"/>
+      </div>
+      <div class="form-group">
+        <input nz-input type="text" ngModel name="cognomeContatto" placeholder="Cognome Contatto" />
+      </div>
+  
+    </div>
+    <div class="col-md-6">
+      <div class="form-group">
+        <input nz-input type="tel" ngModel name="telefonoContatto" placeholder="Telefono Contatto" />
+      </div>
+      <div class="form-group">
+        <input nz-input type="email" ngModel name="emailContatto" placeholder="Email Contatto" />
+      </div>
+      <div class="form-group">
+        <input nz-input type="text" ngModel name="Via" placeholder="Via" />
+      </div>
+      <div class="form-group">
+        <input nz-input type="text" ngModel name="Civico" placeholder="Civico" />
+      </div>
+      <div class="form-group">
+        <input nz-input type="text" ngModel name="Cap" placeholder="Cap" />
+      </div>
+      <div class="form-group">
+        <input nz-input type="text" ngModel name="Localita" placeholder="Località" />
+      </div>
+      <div class="form-group">
+        <nz-select nzPlaceHolder="Select a comune" ngModel name="comune">
+          <nz-option *ngFor="let comune of comuni" [nzValue]="comune.nome" [nzLabel]="comune.nome">
+            {{comune.nome}}
+          </nz-option>
+        </nz-select>
+      </div>
+      <div class="form-group">
+        <nz-select nzPlaceHolder="Select a provincia"ngModel name="provincia">
+          <nz-option *ngFor="let provincia of province" [nzValue]="provincia.nome" [nzLabel]="provincia.nome">
+            {{provincia.nome}}
+          </nz-option>
+        </nz-select>
+      </div>
+</div>
+</div>
+      <button nz-button nzType="primary" type="submit">Aggiungi</button>
+    </form>
+</div>

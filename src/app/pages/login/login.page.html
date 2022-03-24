@@ -1,0 +1,47 @@
+<div class="wrapper">
+    <div class="row">
+      <form class="form" (ngSubmit)="submitForm(form)" #form="ngForm">
+        <div *ngIf="errorMessage" class="alert alert-danger" role="alert">
+          {{errorMessage}}
+        </div>
+  
+        <input
+          ngModel
+          nz-input
+  
+          type="text"
+          name="username"
+          placeholder="username"
+        />
+        <nz-input-group [nzSuffix]="suffixTemplate">
+        <input
+          ngModel
+          [type]="passwordVisible ? 'text' : 'password'"
+          nz-input
+          type="text"
+          name="password"
+          placeholder="password"
+  
+        />
+      </nz-input-group>
+        <ng-template #suffixTemplate>
+          <i nz-icon [nzType]="passwordVisible ? 'eye-invisible' : 'eye'" (click)="passwordVisible = !passwordVisible" style="cursor: pointer;"></i>
+        </ng-template>
+        <button nz-button nzType="primary" type="submit" nzSize="large">
+          <!-- < <i nz-icon nzType="key" [nzTheme]="'key'" [nzKeyColor]="'#52c41a'"></i> -->
+       Login
+          <!-- <span
+            *ngIf="isLoading"
+            class="spinner-border spinner-border-sm mx-2"
+            role="status"
+            aria-hidden="true"
+          ></span> -->
+        </button>
+        <p>
+  
+          Nuovo utente?
+          <a nz-button nzType="link" (click)="goSignUp()">Registrati</a>
+        </p>
+      </form>
+    </div>
+  </div>

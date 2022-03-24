@@ -1,0 +1,54 @@
+<div class="wrapper">
+    <form class="form" #form="ngForm" (ngSubmit)="submitForm(form)">
+      <div class="row">
+        <div class="form-group">
+          <input nz-input type="date" ngModel name="data" required />
+        </div>
+        <div class="form-group">
+          <input
+            nz-input
+            type="number"
+            type="text"
+            ngModel
+            name="numero"
+            placeholder="numero"
+            required
+          />
+        </div>
+        <div class="form-group">
+          <input
+            nz-input
+            type="text"
+            type="text"
+            ngModel
+            name="anno"
+            placeholder="anno"
+            required
+          />
+        </div>
+        <div class="form-group">
+          <input
+            nz-input
+            type="text"
+            type="text"
+            ngModel
+            name="importo"
+            placeholder="importo"
+            required
+          />
+        </div>
+        <div class="form-group">
+          <nz-select nzPlaceHolder="Select a state" ngModel name="stato">
+            <nz-option
+              *ngFor="let state of stato"
+              [nzValue]="state"
+              [nzLabel]="state"
+            >
+              {{state}}
+            </nz-option>
+          </nz-select>
+        </div>
+      </div>
+      <button nz-button nzType="primary" type="submit">Aggiungi</button>
+    </form>
+  </div>
